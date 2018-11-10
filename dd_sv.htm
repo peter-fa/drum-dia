@@ -1,0 +1,29 @@
+<html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><head><meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"><title>Drum Dia</title></head><body><p>Drum Dia är ett program, som utgår från en textfil med kommandon, och ritar upp ett diagram över ett trumset - alltså en bild på ett trumset, sett uppifrån. Bilden är i svg-format, och kan också bäddas in i en html-fil. Programmet körs från en kommandoprompt på ett av följande sätt:</p><pre>dd &lt; infil.txt &gt; utfil.svg
+
+dd -svg &lt; infil.txt &gt; utfil.svg
+
+dd -html &lt; infil.txt &gt; utfil.htm</pre><h2>Exempel på textfiler och kommandon</h2><p>I textfilen anges ett kommando, som anger avståndet mellan en centrumpunkt och instrumentet, och därefter vinkeln medurs eller moturs, mellan centrumpunkten och instrumentet. Slutligen anges vilket instrument, som ska skrivas ut. Centrumpunkten är i utgångsläget mitten på trumstolen.</p><p>I första exemplet är avståndet från trumstolen 800 millimeter, och vinkeln från trumstolen till instrumentet 30 grader medurs. Instrumentet som skrivs ut är en trumma med diametern 14 tum.</p><pre>800 30 dr14</pre><p>I det andra exemplet är avståndet från trumstolen 800 millimeter, och vinkeln från trumstolen till instrumentet 30 grader moturs. Instrumentet som skrivs ut är en cymbal med diametern 16 tum.</p><pre>800 -30 cy16</pre><p>I det tredje exemplet skrivs först trumman ut, och sedan cymbalen:</p><pre>800 30 dr14
+800 -30 cy16</pre><p>Det går att flytta centrumpunkten från mitten av trumstolen, till en position till höger eller vänster. Detta kan vara bra vid positionering av instrument, som spelas antingen med höger eller vänster hand, eller fot. Här har centrumpunkten, flyttats 150 millimeter åt höger. Därefter har avståndet 800 millimeter och vinkeln 0 grader valts. Efter det har en bastrumma med diametern 22 tum skrivits ut:</p><pre>150@ 800 0 bd22</pre><p>Det finns också kommandon för att få ett rutnät bakom figuren, till exempel på följande sätt:</p><pre>c23 150@ 800 0 bd22</pre><p>Kommandot för rutnät skrivs först i filen.</p><p>Här kommer ett exempel på ett 5 delars trumset:</p><pre> c34 150@
+ 800 0 bd22
+ 750 -13 dr12
+ 750 13 dr14
+ 510 45 dr16
+ 850 40 cy20
+
+ -150@
+ 390 0 dr14
+ 520 -45 hh14
+ 730 -15 cy16</pre><p>Nästa exempel ger en bild av ett trumset med två bastrummor:</p><pre> c34
+ -150@ 800 -15 bd22
+ 740 -3 dr12
+ 550 -45 hh14
+ 800 -25 cy18
+
+ 150@ 800 15 bd22
+ 740 1 dr13
+ 740 29 dr14
+ 450 55 dr16
+ 800 60 cy22
+
+ 0@ 430 0 dr14
+ 900 0 cy10 </pre><h2>Tabell över kommandon i Drum Dia</h2><table><tr><td>300 - 999</td><td>Sätter värdet på längd i millimeter från centrumpunkten till instrumentets centrum. Värdet ska vara mellan 300 och 999.</td></tr><tr><td>0 - 90</td><td>Sätter instrumentets vinkel i grader medurs från centrumpunkten. En eller två siffror - mellan 0 och 90.</td></tr><tr><td>-90 - 0</td><td>Sätter instrumentets vinkel i grader moturs från centrumpunkten. Minustecken och en eller två siffror - mellan -90 och 0.</td></tr><tr><td>100@ - 199@</td><td>Flyttar centrumpunkten till en plats mellan 100 och 199 millimeter till höger om trumstolens mitt. För instrument som spelas med höger hand eller fot.</td></tr><tr><td>-199@ - -100@</td><td>Flyttar centrumpunkten till en plats mellan 100 och 199 millimeter till vänster om trumstolens mitt. För instrument som spelas med vänster hand eller fot.</td></tr><tr><td>0@</td><td>Placerar centrumpunkten i trumstolens mitt. För instrument som spelas med båda händerna.</td></tr><tr><td>dr8</td><td>Skriver ut en trumma med diametern 8 tum</td></tr><tr><td>dr10</td><td>Skriver ut en trumma med diametern 10 tum</td></tr><tr><td>dr12</td><td>Skriver ut en trumma med diametern 12 tum</td></tr><tr><td>dr13</td><td>Skriver ut en trumma med diametern 13 tum</td></tr><tr><td>dr14</td><td>Skriver ut en trumma med diametern 14 tum</td></tr><tr><td>dr16</td><td>Skriver ut en trumma med diametern 16 tum</td></tr><tr><td>dr18</td><td>Skriver ut en trumma med diametern 18 tum</td></tr><tr><td>cy6</td><td>Skriver ut en cymbal med diametern 6 tum</td></tr><tr><td>cy8</td><td>Skriver ut en cymbal med diametern 8 tum</td></tr><tr><td>cy10</td><td>Skriver ut en cymbal med diametern 10 tum</td></tr><tr><td>cy12</td><td>Skriver ut en cymbal med diametern 12 tum</td></tr><tr><td>cy14</td><td>Skriver ut en cymbal med diametern 14 tum</td></tr><tr><td>cy16</td><td>Skriver ut en cymbal med diametern 16 tum</td></tr><tr><td>cy18</td><td>Skriver ut en cymbal med diametern 18 tum</td></tr><tr><td>cy20</td><td>Skriver ut en cymbal med diametern 20 tum</td></tr><tr><td>cy22</td><td>Skriver ut en cymbal med diametern 22 tum</td></tr><tr><td>cy24</td><td>Skriver ut en cymbal med diametern 24 tum</td></tr><tr><td>cy26</td><td>Skriver ut en cymbal med diametern 26 tum</td></tr><tr><td>hh12</td><td>Skriver ut en hi-hat med diametern 12 tum</td></tr><tr><td>hh13</td><td>Skriver ut en hi-hat med diametern 13 tum</td></tr><tr><td>hh14</td><td>Skriver ut en hi-hat med diametern 14 tum</td></tr><tr><td>hh15</td><td>Skriver ut en hi-hat med diametern 15 tum</td></tr><tr><td>bd18</td><td>Skriver ut en bastrumma med diametern 18 tum</td></tr><tr><td>bd20</td><td>Skriver ut en bastrumma med diametern 20 tum</td></tr><tr><td>bd22</td><td>Skriver ut en bastrumma med diametern 22 tum</td></tr><tr><td>bd24</td><td>Skriver ut en bastrumma med diametern 24 tum</td></tr><tr><td>c01 - cy46</td><td>Ritar ett rutnät i figuren. Första siffran ska vara mellan 0 och 4 och andra siffran mellan 1 och 6. Koden ska placeras först i filen.</td></tr></table><p>Objekten ska skrivas ut i följande ordning: Först rutnät, sedan bastrumma, därefter pukor och virveltrumma, och sist cymbaler. De objekt som är underst, ska skrivas ut först, och de som är överst ska skrivas ut sist. </p></body></html>
