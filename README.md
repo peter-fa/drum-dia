@@ -31,7 +31,7 @@ test1.txt:
 
 test1.svg:
 
-![svg-file](test1.jpg)
+![svg-file](test1.svg)
 
 test2.txt:
 
@@ -54,5 +54,5 @@ test2.txt:
 
 test2.svg:
 
-![svg-file](test2.jpg)
+![svg-file](test2.svg)
 
